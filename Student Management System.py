@@ -74,12 +74,16 @@ def search_student():
     for i in students:
         if search_name == i["name"]:
             print("The student info:-------------")
-            print(f"id:{i['id']}, name:{i['name']}, phone:{['tel']}")
+            print(f"id:{i['id']}, name:{i['name']}, phone:{i['tel']}")
             break
     else:
         print("The student doesn't exist!!")
 
-    print(students)
+
+def print_all():
+    print("ID\tName\tTel")
+    for i in students:
+        print(f"{i['id']}\t{i['name']}\t{i['tel']}")
 
 
 while True:
@@ -95,8 +99,10 @@ while True:
         case 4:
             search_student()
         case 5:
-            print("View")
+            print_all()
         case 6:
-            print("Exit")
+            exit_flag = input("Are you sure to exit? yes or no: ")
+            if exit_flag == "yes":
+                break
         case _:
             print("Wrong Option, please input again:")
