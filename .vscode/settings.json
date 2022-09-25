@@ -1,0 +1,5 @@
+{
+  "editor.defaultFormatter": null,
+  "code-runner.runInTerminal": true,
+  "python.formatting.provider": "black",
+}
