@@ -1,5 +1,8 @@
+from student import *
+
+
 class StudentManager(object):
-    def __init__(self) -> None:
+    def __init__(self):
         self.student_list = []
 
     def run(self):
@@ -39,10 +42,25 @@ class StudentManager(object):
         print("-" * 30)
 
     def add_student(self):
-        print("Add a student")
+        name = input("Input student name: ")
+        gender = input("Input student gender: ")
+        tel = input("Input student phone number: ")
+
+        new_student = Student(name, gender, tel)
+        self.student_list.append(new_student)
 
     def del_student(self):
-        print("Delete a student")
+        del_name = input("Input student name want to delete: ")
+
+        for i in self.student_list:
+            if del_name == i.name:
+                self.student_list.remove(i)
+                print("Delete succeeds!")
+                break
+        else:
+            print("This name not exist!")
+
+        print(self.student_list)
 
     def modify_student(self):
         print("Modify a student")
