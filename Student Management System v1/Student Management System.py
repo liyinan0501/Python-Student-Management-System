@@ -1,8 +1,3 @@
-from ast import Return
-from distutils.log import info
-from email.policy import default
-
-
 def infoPrint():
     print("Select one option-------------")
     print("1. Add Student")
