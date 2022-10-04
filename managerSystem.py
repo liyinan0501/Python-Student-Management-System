@@ -71,17 +71,26 @@ class StudentManager(object):
                 i.gender = input("Input the new gender: ")
                 i.tel = input("Input the new tel: ")
                 print(
-                    f"Modify succeeds! name: {i.name}, gender: {i.gender}, tel: {i.name}"
+                    f"Modify succeeds! name: {i.name}, gender: {i.gender}, tel: {i.tel}"
                 )
                 break
         else:
             print("The student not exist!!")
 
     def search_student(self):
-        print("Search a student")
+        search_name = input("Input the name want to search: ")
+
+        for i in self.student_list:
+            if i.name == search_name:
+                print(f"name: {i.name}, gender: {i.gender}, tel: {i.tel}")
+                break
+        else:
+            print("The student not exist!!")
 
     def show_student(self):
-        print("Show all students")
+        print("name\tgender\ttel")
+        for i in self.student_list:
+            print(f"{i.name}\t{i.gender}\t{i.tel}")
 
     def save_student(self):
         print("Save a student")
