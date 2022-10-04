@@ -63,7 +63,19 @@ class StudentManager(object):
         print(self.student_list)
 
     def modify_student(self):
-        print("Modify a student")
+        modify_name = input("Input the student name want to modify: ")
+
+        for i in self.student_list:
+            if i.name == modify_name:
+                i.name = input("Input the new name: ")
+                i.gender = input("Input the new gender: ")
+                i.tel = input("Input the new tel: ")
+                print(
+                    f"Modify succeeds! name: {i.name}, gender: {i.gender}, tel: {i.name}"
+                )
+                break
+        else:
+            print("The student not exist!!")
 
     def search_student(self):
         print("Search a student")
