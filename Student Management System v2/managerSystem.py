@@ -93,7 +93,24 @@ class StudentManager(object):
             print(f"{i.name}\t{i.gender}\t{i.tel}")
 
     def save_student(self):
-        print("Save a student")
+        f = open("student.data", "w")
+
+        new_list = [i.__dict__ for i in self.student_list]
+        f.write(str(new_list))
+
+        f.close()
 
     def load_student(self):
-        print("Load students")
+        try:
+            f = open("student.data", "r")
+        except:
+            f = open("student.data", "w")
+        else:
+            data = f.read()
+            new_list = eval(data)
+            # print(type(new_list)) # type list
+            self.student_list = [
+                Student(i["name"], i["gender"], i["tel"]) for i in new_list
+            ]
+        finally:
+            f.close()
